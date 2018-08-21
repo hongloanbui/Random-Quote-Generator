@@ -1,23 +1,11 @@
 // FSJS - Random Quote Generator
 
 // Create the array of quote objects and name it quotes
+var randomQuote;
+var message;
+
 
 var quotes=[
-  {
-    quote:“Be yourself; everyone else is already taken.”,
-    source: " - Oscar Wilde",
-    citation: false
-  },
-  {
-    quote:“You only live once, but if you do it right, once is enough.”,
-    source:" - Mae West",
-    citation: false
-  },
-  {
-    quote:“Nature can be lethal. But it doesn't hold a candle to man.”,
-    source:" - Samuel L. Jackson",
-    citation:"<i>Deep Blue Sea, 1999</i>"
-  },
   {
     quote:"I never look back darling, it distracts from the now.",
     source:" - Edna Mode",
@@ -30,15 +18,28 @@ var quotes=[
   },
   {
     quote: "Popularity is not an indication of quality.",
-    source: " - Vanna Bonta"
+    source: " - Vanna Bonta",
     citation: false
+  },
+  {
+    quote: "Be yourself; everyone else is already taken.",
+    source: " - Oscar Wilde",
+    citation: false
+  },
+  {
+    quote:"Nature can be lethal. But it doesn't hold a candle to man.",
+    source: " - Samuel L. Jackson",
+    citation:"<i>Deep Blue Sea, 1999</i>"
   }
-]
+];
 
 
 
 // Create the getRandomQuuote function and name it getRandomQuote
 
+function getRandomQuote(){
+
+}
 
 
 // Create the printQuote funtion and name it printQuote
