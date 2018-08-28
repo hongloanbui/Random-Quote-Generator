@@ -1,10 +1,10 @@
 // FSJS - Random Quote Generator
 
 // Create the array of quote objects and name it quotes
-var message="";
+var message= "";
 
 
-var randomQuote =[
+var quotes =[
   {
     quote:"I never look back darling, it distracts from the now.",
     source:" - Edna Mode",
@@ -34,26 +34,29 @@ var randomQuote =[
 
 
 
-// Create the getRandomQuuote function and name it getRandomQuote
+// Create the getRandomQuote function and name it getRandomQuote
 
 function getRandomQuote(randomQuote){
-  Math.floor(Math.random() * randomQuote.length)+1;
-  return getRandomQuote;
-    console.log(getRandomQuote);
+  var index= Math.floor(Math.random() * quotes.length)+1;
+  for(i=quotes[index];){
+  message +="<h1>"+ quotes.quote[i] +"</h1><br>";
+  message+="<h2>"+ quotes.source[i] +"</h2>";
+  }
+  if(quotes.citation != false){
+  message += "<h3>"+ quotes.citation[i] +"</h3>";
+  }
 }
+
 
 
 // Create the printQuote funtion and name it printQuote
 
 function printQuote (message){
-   var outputDiv = document.getElementById("output");
-   outputDiv.innerHTML = message;
+ var outputDiv = document.getElementById("quote-box");
+ outputDiv.innerHTML = "quote-box";
 }
-for (getRandomQuote){
-
-  message +="<h1>"+ randomQuote.quote +"</h1>";
-  message+="<h2>"+ randomQuote.source +"</h2>"
-}
+message += "hi";
+printQuote(message);
 
 
 // This event listener will respond to "Show another quote" button clicks
