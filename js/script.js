@@ -3,10 +3,10 @@
 // Create the array of quote objects and name it quotes
 
 //declaration of variables involved in creating final string printed to webpage
-var message;
-var quoteText;
-var sourceText;
-var citationText;
+var message="";
+var quoteText="";
+var sourceText="";
+var citationText="";
 
 //quote object array
 
@@ -79,6 +79,8 @@ printQuote(message);
 
 // This event listener will respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
+document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+
 setTimeout(function(){
    window.location.reload(1);
 }, 5000);
