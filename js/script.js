@@ -36,14 +36,19 @@ var quotes =[
 
 // Create the getRandomQuote function and name it getRandomQuote
 
-function getRandomQuote(randomQuote){
-  var index= Math.floor(Math.random() * quotes.length)+1;
-  for(i=quotes[index];){
-  message +="<h1>"+ quotes.quote[i] +"</h1><br>";
-  message+="<h2>"+ quotes.source[i] +"</h2>";
-  }
-  if(quotes.citation != false){
-  message += "<h3>"+ quotes.citation[i] +"</h3>";
+function getRandomQuote(quotes){
+  return Math.floor(Math.random() * quotes.length);
+    }
+for(var i=0; i< quotes.length; i+=1){
+    i = getRandomQuote(quotes);
+    quoteText = quotes[i].quote;
+    sourceText = quotes[i].source;
+    message +="<h1>"+ quoteText +"</h1><br>";
+    message+="<h2>"+ sourceText +"</h2>";
+  if(quotes[i].citation != false){
+    citationText = quotes[i].citation;
+  message += "<h3>"+ citationText +"</h3>";
+  i+=1
   }
 }
 
@@ -53,10 +58,11 @@ function getRandomQuote(randomQuote){
 
 function printQuote (message){
  var outputDiv = document.getElementById("quote-box");
- outputDiv.innerHTML = "quote-box";
+ outputDiv.innerHTML = message;
 }
-message += "hi";
+
 printQuote(message);
+
 
 
 // This event listener will respond to "Show another quote" button clicks
