@@ -79,8 +79,12 @@ printQuote(message);
 
 // This event listener will respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
+
+//button click by guest to create new random quote
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
+
+//set timer to automatically reload page and create new random quote
 setTimeout(function(){
    window.location.reload(1);
 }, 5000);
