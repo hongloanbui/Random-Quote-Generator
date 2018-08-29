@@ -1,8 +1,14 @@
 // FSJS - Random Quote Generator
 
 // Create the array of quote objects and name it quotes
-var message= "";
 
+//declaration of variables involved in creating final string printed to webpage
+var message;
+var quoteText;
+var sourceText;
+var citationText;
+
+//quote object array
 
 var quotes =[
   {
@@ -36,19 +42,23 @@ var quotes =[
 
 // Create the getRandomQuote function and name it getRandomQuote
 
+//function creating a random number for index in array
+
 function getRandomQuote(quotes){
   return Math.floor(Math.random() * quotes.length);
     }
-for(var i=0; i< quotes.length; i+=1){
+// for loop to create string of variables from array
+
+for(var i=0; i<=1; i++){
     i = getRandomQuote(quotes);
     quoteText = quotes[i].quote;
     sourceText = quotes[i].source;
-    message +="<h1>"+ quoteText +"</h1><br>";
-    message+="<h2>"+ sourceText +"</h2>";
+    message +="<h1>"+ quoteText +"</h1>";
+    message+="<h2>"+ sourceText +"</h2><br>";
   if(quotes[i].citation != false){
     citationText = quotes[i].citation;
-  message += "<h3>"+ citationText +"</h3>";
-  i+=1
+  message += "<h3>"+ citationText +"</h3><br>";
+  i+=1;
   }
 }
 
@@ -60,6 +70,8 @@ function printQuote (message){
  var outputDiv = document.getElementById("quote-box");
  outputDiv.innerHTML = message;
 }
+
+//printing string of variables to page
 
 printQuote(message);
 
