@@ -12,29 +12,29 @@ var citationText="";
 
 var quotes =[
   {
-    quote:"I never look back darling, it distracts from the now.",
+    quote:'"I never look back darling, it distracts from the now."',
     source:" - Edna Mode",
     citation: "<i>The Incredibles, 2004</i>"
   },
   {
-    quote: "Endurance is the crowning quality, And patience all the passion of great hearts.",
+    quote: '"Endurance is the crowning quality, And patience all the passion of great hearts."',
     source:" - James Russell Lowell",
     citation: false
   },
   {
-    quote: "Popularity is not an indication of quality.",
+    quote: '"Popularity is not an indication of quality."',
     source: " - Vanna Bonta",
     citation: false
   },
   {
-    quote: "Be yourself; everyone else is already taken.",
+    quote: '"Be yourself; everyone else is already taken."',
     source: " - Oscar Wilde",
     citation: false
   },
   {
-    quote:"Nature can be lethal. But it doesn't hold a candle to man.",
-    source: " - Samuel L. Jackson",
-    citation:"<i>Deep Blue Sea, 1999</i>"
+    quote: '“Get busy living or get busy dying.”',
+    source: " - Stephen King",
+    citation: false
   }
 ];
 
@@ -76,16 +76,15 @@ function printQuote (message){
 printQuote(message);
 
 
+//set timer to automatically reload page and create new random quote
+setTimeout(function(){
+   window.location.reload(1);
+}, 5000);
+
 
 // This event listener will respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
 
 //button click by guest to create new random quote
 
-
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
-
-//set timer to automatically reload page and create new random quote
-setTimeout(function(){
-   window.location.reload(1);
-}, 5000);
