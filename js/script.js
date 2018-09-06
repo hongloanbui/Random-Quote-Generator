@@ -94,7 +94,8 @@ document.getElementById('loadQuote').addEventListener("click", printQuote, false
 
 //adding array of hex code colors for randomized background color
 
-var colors = ["#5dd8b5", "#4973c6", "#bfa54a", "#c669e0", "#030342", "#4c8257", "#848157", "#60125c", "#1f4151"]
+var colors = ["#5dd8b5", "#4973c6", "#bfa54a", "#c669e0", "#030342", "#4c8257", "#848157", "#60125c", "#1f4151",
+            "#5a7703", "#aa6600", "#a50938", "#602034", "#62048e", "#00594b", "#10a328", "#4242ff"]
 
 
 // crearing variable to generate random index in array to display background color
@@ -102,5 +103,5 @@ var changeBackground = function(){
   document.body.style.background = colors[Math.floor(Math.random()*colors.length)];
 }
 
-//executing change of background color 
+//executing change of background color
 changeBackground();
