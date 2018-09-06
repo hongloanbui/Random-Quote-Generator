@@ -7,6 +7,7 @@ var message="";
 var quoteText="";
 var sourceText="";
 var citationText="";
+var tagText = "";
 const loadQuote = document.getElementById("message");
 
 //quote object array
@@ -15,27 +16,32 @@ var quotes =[
   {
     quote:'"I never look back darling, it distracts from the now."',
     source:" - Edna Mode",
-    citation: "<i>The Incredibles, 2004</i>"
+    citation: "<i>The Incredibles, 2004</i>",
+    tag: "Movie Madness"
   },
   {
     quote: '"Endurance is the crowning quality, And patience all the passion of great hearts."',
     source:" - James Russell Lowell",
-    citation: false
+    citation: false,
+    tag: "Life Thoughts"
   },
   {
     quote: '"Popularity is not an indication of quality."',
     source: " - Vanna Bonta",
-    citation: false
+    citation: false,
+    tag: "Life Thoughts"
   },
   {
     quote: '"Be yourself; everyone else is already taken."',
     source: " - Oscar Wilde",
-    citation: false
+    citation: false,
+    tag: "Life Thoughts"
   },
   {
     quote: '“Get busy living or get busy dying.”',
     source: " - Stephen King",
-    citation: false
+    citation: false,
+    tag: "Movie Madness"
   }
 ];
 
@@ -54,6 +60,7 @@ for(var i=0; i<=1; i++){
     i = getRandomQuote(quotes);
     quoteText = quotes[i].quote;
     sourceText = quotes[i].source;
+    tagText = quotes[i].tag;
     message +="<h1>"+ quoteText +"</h1>";
     message+="<h2>"+ sourceText +"</h2><br>";
   if(quotes[i].citation != false){
@@ -61,6 +68,7 @@ for(var i=0; i<=1; i++){
   message += "<h3>"+ citationText +"</h3><br>";
   i+=1;
   }
+  message+="<h3>"+ tagText +"</h3><br>";
 }
 
 
