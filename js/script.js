@@ -41,7 +41,7 @@ var quotes =[
     quote: '“Get busy living or get busy dying.”',
     source: " - Stephen King",
     citation: false,
-    tag: "Movie Madness"
+    tag: "Life Thoughts"
   }
 ];
 
