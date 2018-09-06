@@ -7,6 +7,7 @@ var message="";
 var quoteText="";
 var sourceText="";
 var citationText="";
+const loadQuote = document.getElementById("message");
 
 //quote object array
 
@@ -79,7 +80,7 @@ printQuote(message);
 //set timer to automatically reload page and create new random quote
 setTimeout(function(){
    window.location.reload(1);
-}, 5000);
+}, 8000);
 
 
 // This event listener will respond to "Show another quote" button clicks
@@ -87,4 +88,19 @@ setTimeout(function(){
 
 //button click by guest to create new random quote
 
+
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+
+
+//adding array of hex code colors for randomized background color
+
+var colors = ["#5dd8b5", "#4973c6", "#bfa54a", "#c669e0", "#030342", "#4c8257", "#848157", "#60125c", "#1f4151"]
+
+
+// crearing variable to generate random index in array to display background color
+var changeBackground = function(){
+  document.body.style.background = colors[Math.floor(Math.random()*colors.length)];
+}
+
+//executing change of background color 
+changeBackground();
