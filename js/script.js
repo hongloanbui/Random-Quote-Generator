@@ -10,6 +10,12 @@ var citationText="";
 var tagText = "";
 const loadQuote = document.getElementById("message");
 
+//adding array of hex code colors for randomized background color
+
+var colors = ["#5dd8b5", "#4973c6", "#bfa54a", "#c669e0", "#030342", "#4c8257", "#848157", "#60125c", "#1f4151",
+            "#5a7703", "#aa6600", "#a50938", "#602034", "#62048e", "#00594b", "#10a328", "#4242ff"]
+
+
 //quote object array
 
 var quotes =[
@@ -68,7 +74,7 @@ for(var i=0; i<=1; i++){
   message += "<h3>"+ citationText +"</h3><br>";
   i+=1;
   }
-  message+="<h3>"+ tagText +"</h3><br>";
+  message+="<h4>"+ tagText +"</h4><br>";
 }
 
 
@@ -84,11 +90,57 @@ function printQuote (message){
 
 printQuote(message);
 
+// crearing variable to generate random index in array to display background color
+var changeBackground = function(){
+  document.body.style.background = colors[Math.floor(Math.random()*colors.length)];
+}
+
 
 //set timer to automatically reload page and create new random quote
-setTimeout(function(){
-   window.location.reload(1);
-}, 8000);
+
+var message2="";
+var quoteText2="";
+var sourceText2="";
+var citationText2="";
+var tagText2= "";
+var elem = document.getElementById("quote-box");
+
+
+setInterval(function(){
+    elem.innerHTML="";
+  changeBackground();
+  function getRandomQuote2(quotes){
+    return Math.floor(Math.random() * quotes.length);
+      }
+  // for loop to create string of variables from array
+
+  for(var i=0; i<=1; i++){
+      i = getRandomQuote2(quotes);
+      quoteText2 = quotes[i].quote;
+      sourceText2 = quotes[i].source;
+      tagText2 = quotes[i].tag;
+      message2 +="<h1>"+ quoteText2 +"</h1>";
+      message2+="<h2>"+ sourceText2 +"</h2><br>";
+    if(quotes[i].citation != false){
+      citationText2 = quotes[i].citation;
+    message2 += "<h3>"+ citationText2 +"</h3><br>";
+    i+=1;
+    }
+    message2+="<h4>"+ tagText2 +"</h4><br>";
+  }
+
+  function reprintQuote (message2){
+   var outputDiv = document.getElementById("quote-box");
+   outputDiv.innerHTML = message2;
+  }
+
+    elem.innerHTML=message2;
+}, 10000);
+
+setInterval(function(){
+    message2="";
+}, 19998);
+
 
 
 // This event listener will respond to "Show another quote" button clicks
@@ -98,18 +150,3 @@ setTimeout(function(){
 
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
-
-
-//adding array of hex code colors for randomized background color
-
-var colors = ["#5dd8b5", "#4973c6", "#bfa54a", "#c669e0", "#030342", "#4c8257", "#848157", "#60125c", "#1f4151",
-            "#5a7703", "#aa6600", "#a50938", "#602034", "#62048e", "#00594b", "#10a328", "#4242ff"]
-
-
-// crearing variable to generate random index in array to display background color
-var changeBackground = function(){
-  document.body.style.background = colors[Math.floor(Math.random()*colors.length)];
-}
-
-//executing change of background color
-changeBackground();
