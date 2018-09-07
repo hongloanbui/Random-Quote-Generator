@@ -10,12 +10,6 @@ var citationText="";
 var tagText = "";
 const loadQuote = document.getElementById("message");
 
-//adding array of hex code colors for randomized background color
-
-var colors = ["#5dd8b5", "#4973c6", "#bfa54a", "#c669e0", "#030342", "#4c8257", "#848157", "#60125c", "#1f4151",
-            "#5a7703", "#aa6600", "#a50938", "#602034", "#62048e", "#00594b", "#10a328", "#4242ff"]
-
-
 //quote object array
 
 var quotes =[
@@ -44,12 +38,43 @@ var quotes =[
     tag: "Life Thoughts"
   },
   {
+    quote: '"There is some good in this world, and it’s worth fighting for."',
+    source: " - J.R.R. Tolkien",
+    citation: "The Two Towers, 1954",
+    tag: "Brainy Books"
+  },
+  {
+    quote: '"Every human life is worth the same, and worth saving."',
+    source: " - J.L. Rowling",
+    citation: "Harry Potter and the Deathly Hallows, 2012",
+    tag: "Brainy Books"
+  },
+  {
+    quote: '"Be yourself; everyone else is already taken."',
+    source: " - Oscar Wilde",
+    citation: false,
+    tag: "Life Thoughts"
+  },
+  {
+    quote: '"The greatest healing therapy is friendship and love"',
+    source: " - Hubert H. Humphrey",
+    citation: false,
+    tag: "Love one, love all"
+  },
+  {
+    quote: '"Being deeply loved by someone gives you strength, while loving someone deeply gives you courage."',
+    source: " - Lao Tzu",
+    citation: false,
+    tag: "Love one, love all"
+  },
+  {
     quote: '“Get busy living or get busy dying.”',
     source: " - Stephen King",
     citation: false,
     tag: "Life Thoughts"
   }
 ];
+
 
 
 
@@ -74,7 +99,7 @@ for(var i=0; i<=1; i++){
   message += "<h3>"+ citationText +"</h3><br>";
   i+=1;
   }
-  message+="<h4>"+ tagText +"</h4><br>";
+  message+="<h3>"+ tagText +"</h3><br>";
 }
 
 
@@ -95,19 +120,12 @@ var changeBackground = function(){
   document.body.style.background = colors[Math.floor(Math.random()*colors.length)];
 }
 
-
 //set timer to automatically reload page and create new random quote
 
-var message2="";
-var quoteText2="";
-var sourceText2="";
-var citationText2="";
-var tagText2= "";
-var elem = document.getElementById("quote-box");
 
 
 setInterval(function(){
-    elem.innerHTML="";
+  message="";
   changeBackground();
   function getRandomQuote2(quotes){
     return Math.floor(Math.random() * quotes.length);
@@ -116,30 +134,24 @@ setInterval(function(){
 
   for(var i=0; i<=1; i++){
       i = getRandomQuote2(quotes);
-      quoteText2 = quotes[i].quote;
-      sourceText2 = quotes[i].source;
-      tagText2 = quotes[i].tag;
-      message2 +="<h1>"+ quoteText2 +"</h1>";
-      message2+="<h2>"+ sourceText2 +"</h2><br>";
+      quoteText = quotes[i].quote;
+      sourceText = quotes[i].source;
+      tagText = quotes[i].tag;
+      message +="<h1>"+ quoteText +"</h1>";
+      message+="<h2>"+ sourceText +"</h2><br>";
     if(quotes[i].citation != false){
-      citationText2 = quotes[i].citation;
-    message2 += "<h3>"+ citationText2 +"</h3><br>";
+      citationText = quotes[i].citation;
+    message += "<h3>"+ citationText +"</h3><br>";
     i+=1;
     }
-    message2+="<h4>"+ tagText2 +"</h4><br>";
+    message+="<h3>"+ tagText +"</h3><br>";
   }
 
-  function reprintQuote (message2){
-   var outputDiv = document.getElementById("quote-box");
-   outputDiv.innerHTML = message2;
-  }
 
-    elem.innerHTML=message2;
-}, 10000);
+  printQuote(message);
+}, 2000);
 
-setInterval(function(){
-    message2="";
-}, 19998);
+
 
 
 
@@ -150,3 +162,9 @@ setInterval(function(){
 
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+
+
+//adding array of hex code colors for randomized background color
+
+var colors = ["#5dd8b5", "#4973c6", "#bfa54a", "#c669e0", "#030342", "#4c8257", "#848157", "#60125c", "#1f4151",
+            "#5a7703", "#aa6600", "#a50938", "#602034", "#62048e", "#00594b", "#10a328", "#4242ff"]
