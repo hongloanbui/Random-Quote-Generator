@@ -116,10 +116,13 @@ function printQuote (message){
 printQuote(message);
 
 // crearing variable to generate random index in array to display background color
+var colors = ["#5dd8b5", "#4973c6", "#bfa54a", "#c669e0", "#030342", "#4c8257", "#848157", "#60125c", "#1f4151",
+            "#5a7703", "#aa6600", "#a50938", "#602034", "#62048e", "#00594b", "#10a328", "#4242ff"]
+
 var changeBackground = function(){
   document.body.style.background = colors[Math.floor(Math.random()*colors.length)];
 }
-
+changeBackground();
 //set timer to automatically reload page and create new random quote
 
 
@@ -149,7 +152,7 @@ setInterval(function(){
 
 
   printQuote(message);
-}, 2000);
+}, 10000);
 
 
 
@@ -162,9 +165,3 @@ setInterval(function(){
 
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
-
-
-//adding array of hex code colors for randomized background color
-
-var colors = ["#5dd8b5", "#4973c6", "#bfa54a", "#c669e0", "#030342", "#4c8257", "#848157", "#60125c", "#1f4151",
-            "#5a7703", "#aa6600", "#a50938", "#602034", "#62048e", "#00594b", "#10a328", "#4242ff"]
