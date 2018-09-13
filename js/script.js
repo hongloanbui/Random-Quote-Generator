@@ -115,17 +115,19 @@ function printQuote (message){
 
 printQuote(message);
 
-// crearing variable to generate random index in array to display background color
+// creating array to generate for random background color
 var colors = ["#5dd8b5", "#4973c6", "#bfa54a", "#c669e0", "#030342", "#4c8257", "#848157", "#60125c", "#1f4151",
             "#5a7703", "#aa6600", "#a50938", "#602034", "#62048e", "#00594b", "#10a328", "#4242ff"]
+
+// creating fuction to execute random background color
 
 var changeBackground = function(){
   document.body.style.background = colors[Math.floor(Math.random()*colors.length)];
 }
 changeBackground();
-//set timer to automatically reload page and create new random quote
 
 
+//set interval to display new random quote and change the background color
 
 setInterval(function(){
   message="";
@@ -153,9 +155,6 @@ setInterval(function(){
 
   printQuote(message);
 }, 10000);
-
-
-
 
 
 // This event listener will respond to "Show another quote" button clicks
