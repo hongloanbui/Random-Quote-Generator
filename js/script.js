@@ -83,32 +83,23 @@ var quotes =[
 //function creating a random number for index in array
 
 function getRandomQuote(quotes){
-  return Math.floor(Math.random() * quotes.length);
-    }
-// for loop to create string of variables from array
-
-for(var i=0; i<=1; i++){
-    i = getRandomQuote(quotes);
-    quoteText = quotes[i].quote;
-    sourceText = quotes[i].source;
-    tagText = quotes[i].tag;
-    message +="<h1>"+ quoteText +"</h1>";
-    message+="<h2>"+ sourceText +"</h2><br>";
-  if(quotes[i].citation != false){
-    citationText = quotes[i].citation;
-  message += "<h3>"+ citationText +"</h3><br>";
-  i+=1;
-  }
-  message+="<h3>"+ tagText +"</h3><br>";
-}
-
-
+  var quoteObj= Math.floor(Math.random() * quotes.length);
+      }
 
 // Create the printQuote funtion and name it printQuote
 
-function printQuote (message){
- var outputDiv = document.getElementById("quote-box");
- outputDiv.innerHTML = message;
+function printQuote (){
+  var printObj = getRandomQuote();
+  message += '<p class="quote">' + printObj.quote + '</p>';
+  message += '<p class="source">' + printObj.source + '</p>';
+  if (printObj.citation !== false){
+      message += '<p class="quote">' + printObj.citation + '</p>';
+  }
+  if (printObj.tag !== false){
+      message += '<p class="quote">' + printObj.tag + '</p>';
+  }
+  var outputDiv = document.getElementById("quote-box");
+  outputDiv.innerHTML = message;
 }
 
 //printing string of variables to page
@@ -129,32 +120,8 @@ changeBackground();
 
 //set interval to display new random quote and change the background color
 
-setInterval(function(){
-  message="";
-  changeBackground();
-  function getRandomQuote2(quotes){
-    return Math.floor(Math.random() * quotes.length);
-      }
-  // for loop to create string of variables from array
-
-  for(var i=0; i<=1; i++){
-      i = getRandomQuote2(quotes);
-      quoteText = quotes[i].quote;
-      sourceText = quotes[i].source;
-      tagText = quotes[i].tag;
-      message +="<h1>"+ quoteText +"</h1>";
-      message+="<h2>"+ sourceText +"</h2><br>";
-    if(quotes[i].citation != false){
-      citationText = quotes[i].citation;
-    message += "<h3>"+ citationText +"</h3><br>";
-    i+=1;
-    }
-    message+="<h3>"+ tagText +"</h3><br>";
-  }
-
 
   printQuote(message);
-}, 10000);
 
 
 // This event listener will respond to "Show another quote" button clicks
