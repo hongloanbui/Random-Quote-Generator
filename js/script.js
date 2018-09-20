@@ -4,11 +4,7 @@
 
 //declaration of variables involved in creating final string printed to webpage
 var message="";
-var quoteText="";
-var sourceText="";
-var citationText="";
-var tagText = "";
-const loadQuote = document.getElementById("message");
+
 
 //quote object array
 
