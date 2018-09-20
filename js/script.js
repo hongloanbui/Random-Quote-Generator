@@ -89,7 +89,7 @@ var changeBackground = function(){
 
 //function creating a random number for index in array
 
-//browser had trouble with the length property inside the getRandomQuote function so I added this in and it seemed to help
+//browser had trouble with the length property inside the getRandomQuote function so I added this in and it has totally resolved the null error
 var quoteLength =quotes.length;
 
 //getRandomQuote function for randomly selecting a quote array index
