@@ -75,37 +75,6 @@ var quotes =[
   }
 ];
 
-
-
-
-// Create the getRandomQuote function and name it getRandomQuote
-
-//function creating a random number for index in array
-
-function getRandomQuote(quotes){
-  var quoteObj= Math.floor(Math.random() * quotes.length);
-      }
-
-// Create the printQuote funtion and name it printQuote
-
-function printQuote (){
-  var printObj = getRandomQuote();
-  message += '<p class="quote">' + printObj.quote + '</p>';
-  message += '<p class="source">' + printObj.source + '</p>';
-  if (printObj.citation !== false){
-      message += '<p class="quote">' + printObj.citation + '</p>';
-  }
-  if (printObj.tag !== false){
-      message += '<p class="quote">' + printObj.tag + '</p>';
-  }
-  var outputDiv = document.getElementById("quote-box");
-  outputDiv.innerHTML = message;
-}
-
-//printing string of variables to page
-
-printQuote(message);
-
 // creating array to generate for random background color
 var colors = ["#5dd8b5", "#4973c6", "#bfa54a", "#c669e0", "#030342", "#4c8257", "#848157", "#60125c", "#1f4151",
             "#5a7703", "#aa6600", "#a50938", "#602034", "#62048e", "#00594b", "#10a328", "#4242ff"]
@@ -115,13 +84,48 @@ var colors = ["#5dd8b5", "#4973c6", "#bfa54a", "#c669e0", "#030342", "#4c8257", 
 var changeBackground = function(){
   document.body.style.background = colors[Math.floor(Math.random()*colors.length)];
 }
-changeBackground();
+
+// Create the getRandomQuote function and name it getRandomQuote
+
+//function creating a random number for index in array
+
+//browser had trouble with the length property inside the getRandomQuote function so I added this in and it seemed to help
+var quoteLength =quotes.length;
+
+//getRandomQuote function for randomly selecting a quote array index
+
+function getRandomQuote(quotes){
+  var quoteObj = Math.floor(Math.random() * quoteLength);
+  return quoteObj;
+      }
+
+// Create the printQuote funtion and name it printQuote
+
+
+function printQuote (message){
+  var print = getRandomQuote();
+  message = '<h1>' + quotes[print].quote + '</h1>';
+  message += '<h2>' + quotes[print].source + '</h2>';
+  if(quotes[print].citation !== false){
+    message += '<h3>' + quotes[print].citation + '</h3>';
+  }
+  if(quotes[print].tag !== false){
+    message += '<h3>' + quotes[print].tag + '</h3>';
+  }
+ var outputDiv = document.getElementById("quote-box");
+ outputDiv.innerHTML = message;
+ changeBackground();
+}
+
+//printing string of variables to page
+
+printQuote(message);
+
 
 
 //set interval to display new random quote and change the background color
 
-
-  printQuote(message);
+var quotetimer = window.setInterval(printQuote, 10000);
 
 
 // This event listener will respond to "Show another quote" button clicks
