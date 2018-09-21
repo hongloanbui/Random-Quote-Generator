@@ -4,7 +4,11 @@
 
 //declaration of variables involved in creating final string printed to webpage
 var message="";
-
+var quoteText="";
+var sourceText="";
+var citationText="";
+var tagText = "";
+const loadQuote = document.getElementById("message");
 
 //quote object array
 
@@ -85,32 +89,37 @@ var changeBackground = function(){
 
 //function creating a random number for index in array
 
-//browser had trouble with the length property inside the getRandomQuote function so I added this in and it has totally resolved the null error
+//browser had trouble with the length property inside the getRandomQuote function so I added this in and it has resolved the null error
 var quoteLength =quotes.length;
 
 //getRandomQuote function for randomly selecting a quote array index
 
-function getRandomQuote(quotes){
-  var quoteObj = Math.floor(Math.random() * quoteLength);
-  return quoteObj;
-      }
+function getRandomQuote(quotes) {
+  var quoteIndex = Math.floor( Math.random() * (quoteLength));
+  for (var i = 0; i < quoteLength; i++) {
+  var randomQuote = quotes[quoteIndex];
+}
+return randomQuote;
+}
+
+
+
 
 // Create the printQuote funtion and name it printQuote
+function printQuote() {
+  var print = getRandomQuote(quotes);
+  message = "<h1>" + print.quote + "</h1>";
+  message += "<h2>" + print.source+ "</h2>";
+      if(print.citation !== false){
+      message += "<h3>" + print.citation + "</h3>";
+    }
+    if(print.tag !== false){
+      message += "<h3>" + print.tag + "</h3>";
+    }
+   var outputDiv = document.getElementById("quote-box");
+   outputDiv.innerHTML = message;
+   changeBackground();
 
-
-function printQuote (message){
-  var print = getRandomQuote();
-  message = '<h1>' + quotes[print].quote + '</h1>';
-  message += '<h2>' + quotes[print].source + '</h2>';
-  if(quotes[print].citation !== false){
-    message += '<h3>' + quotes[print].citation + '</h3>';
-  }
-  if(quotes[print].tag !== false){
-    message += '<h3>' + quotes[print].tag + '</h3>';
-  }
- var outputDiv = document.getElementById("quote-box");
- outputDiv.innerHTML = message;
- changeBackground();
 }
 
 //printing string of variables to page
